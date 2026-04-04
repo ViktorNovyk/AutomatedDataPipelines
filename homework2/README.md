@@ -75,7 +75,7 @@ docker compose --profile flower up
 #### Add retry logic and error handling
 PythonOperator extends the BaseOperator, which provides [retry logic](https://airflow.apache.org/docs/task-sdk/3.1.8/api.html#airflow.sdk.BaseOperator) and error handling.\
 So, the [PythonOperator](./dags/weather_dag_hw2.py#L197), which calls the Weather API, is configured to retries with exponential backoff.\
-Error handling is done in the [fetch_weather_payload](./dags/weather_dag_hw2.py#L) method.\
+Error handling is done in the [fetch_weather_payload](./dags/weather_dag_hw2.py#L66) method.\
 Any 4xx http status code is considered an error, and non-retriable [AirflowFailException](https://airflow.apache.org/docs/apache-airflow/3.1.8/_api/airflow/exceptions/index.html) is throws.\
 Any 5xx http status code is considered to be retriable, so AirflowException is thrown.
 
